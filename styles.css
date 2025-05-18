@@ -1,0 +1,224 @@
+/* Body and container */
+body {
+  background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  overflow-y: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Search Bar Styling */
+#cityInput {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  border: 2px solid #2f80ed;
+  border-radius: 12px 12px 0 0;
+  outline: none;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  background-color: #fff;
+  color: #333;
+  font-weight: 500;
+}
+
+#cityInput:focus {
+  border-color: #56ccf2;
+  box-shadow: 0 0 8px rgba(86, 204, 242, 0.7);
+}
+
+/* Search Suggestions List */
+#suggestions {
+  max-height: 200px;
+  overflow-y: auto;
+  cursor: pointer;
+  border: 2px solid #2f80ed;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(47, 128, 237, 0.3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  z-index: 1000;
+  position: relative;
+}
+
+#suggestions li {
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.25s ease;
+}
+
+#suggestions li:hover,
+#suggestions li.active {
+  background-color: #2f80ed;
+  color: #fff;
+}
+
+/* Weather Card Styling & Animation */
+.weather-card {
+  background: #ffffffdd;
+  border-radius: 18px;
+  padding: 30px 35px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+  margin-top: 30px;
+  min-height: 320px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animate card on load */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Weather Icon Styling & Animation */
+.weather-icon {
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin: 15px auto;
+  animation: bounceIcon 1s ease forwards;
+}
+
+@keyframes bounceIcon {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Text styling with fade-in */
+#weatherResult h4,
+#weatherResult p {
+  text-align: center;
+  animation: fadeInText 0.8s ease forwards;
+  opacity: 0;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+#weatherResult h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+#weatherResult p {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+/* Fade in text sequentially */
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Skeleton Loader Styling (as before) */
+.placeholder-glow > * {
+  border-radius: 6px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+  background-size: 400% 100%;
+  animation: placeholder-glow 1.5s infinite;
+}
+
+.placeholder {
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  margin: 8px 0;
+}
+
+.placeholder.col-4 {
+  width: 40%;
+}
+
+.placeholder.col-5 {
+  width: 50%;
+}
+
+.placeholder.col-6 {
+  width: 60%;
+  height: 28px;
+  margin-bottom: 12px;
+}
+
+.placeholder.col-7 {
+  width: 70%;
+}
+
+@keyframes placeholder-glow {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+/* Error Message styling */
+#errorMsg {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Scrollbar style for suggestions */
+#suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+#suggestions::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#suggestions::-webkit-scrollbar-thumb {
+  background: #2f80ed;
+  border-radius: 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .weather-card {
+    padding: 20px 25px;
+  }
+
+  #cityInput {
+    font-size: 1rem;
+  }
+
+  #weatherResult h4 {
+    font-size: 1.5rem;
+  }
+
+  #weatherResult p {
+    font-size: 1rem;
+  }
+}
