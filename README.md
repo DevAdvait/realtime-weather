@@ -91,12 +91,12 @@ The app uses **Bootstrap** for a responsive UI, **jQuery** for DOM manipulation 
 ## File Structure
 
 /project-root
-│
-├── index.html # Main HTML file
-├── styles.css # Custom CSS styles
-├── script.js # JavaScript and jQuery logic
-├── city.list.json # City data for search autocomplete
-└── README.md # This documentation file
+|
+|── index.html # Main HTML file
+|── styles.css # Custom CSS styles
+|── script.js # JavaScript and jQuery logic
+|── city.list.json # City data for search autocomplete
+|── README.md # This documentation file
 
 ---
 
