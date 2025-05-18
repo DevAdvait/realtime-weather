@@ -1,13 +1,13 @@
-/* Body and container */
+/* Body and container - Dark Theme */
 body {
-  background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
+  background: linear-gradient(135deg, #1a1a40 0%, #2e3057 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 50px 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #222;
+  color: #e0e0e0;
   overflow-y: auto;
 }
 
@@ -21,18 +21,23 @@ body {
   width: 100%;
   padding: 14px 20px;
   font-size: 1.1rem;
-  border: 2px solid #2f80ed;
+  border: 2px solid #6c63ff;
   border-radius: 12px 12px 0 0;
   outline: none;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
-  background-color: #fff;
-  color: #333;
+  background-color: #22243a;
+  color: #e0e0e0;
   font-weight: 500;
+  caret-color: #6c63ff;
+}
+
+#cityInput::placeholder {
+  color: #999abf;
 }
 
 #cityInput:focus {
-  border-color: #56ccf2;
-  box-shadow: 0 0 8px rgba(86, 204, 242, 0.7);
+  border-color: #918cff;
+  box-shadow: 0 0 10px rgba(145, 140, 255, 0.8);
 }
 
 /* Search Suggestions List */
@@ -40,11 +45,11 @@ body {
   max-height: 200px;
   overflow-y: auto;
   cursor: pointer;
-  border: 2px solid #2f80ed;
+  border: 2px solid #6c63ff;
   border-top: none;
   border-radius: 0 0 12px 12px;
-  background-color: #fff;
-  box-shadow: 0 4px 12px rgba(47, 128, 237, 0.3);
+  background-color: #22243a;
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.4);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -52,26 +57,27 @@ body {
   font-size: 1rem;
   z-index: 1000;
   position: relative;
+  color: #ccc;
 }
 
 #suggestions li {
   padding: 12px 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #33354a;
   transition: background-color 0.25s ease;
 }
 
 #suggestions li:hover,
 #suggestions li.active {
-  background-color: #2f80ed;
+  background-color: #6c63ff;
   color: #fff;
 }
 
 /* Weather Card Styling & Animation */
 .weather-card {
-  background: #ffffffdd;
+  background: #2e3057dd;
   border-radius: 18px;
   padding: 30px 35px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 25px rgba(108, 99, 255, 0.3);
   margin-top: 30px;
   min-height: 320px;
   opacity: 0;
@@ -79,6 +85,8 @@ body {
   animation: fadeInUp 0.6s forwards ease-out;
   position: relative;
   overflow: hidden;
+  color: #e0e0e0;
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
 
 /* Animate card on load */
@@ -96,6 +104,7 @@ body {
   display: block;
   margin: 15px auto;
   animation: bounceIcon 1s ease forwards;
+  filter: drop-shadow(0 0 6px #918cff);
 }
 
 @keyframes bounceIcon {
@@ -119,7 +128,8 @@ body {
   animation: fadeInText 0.8s ease forwards;
   opacity: 0;
   margin-bottom: 10px;
-  color: #1a1a1a;
+  color: #e0e0e0;
+  text-shadow: 0 0 3px rgba(0,0,0,0.7);
 }
 
 #weatherResult h4 {
@@ -140,10 +150,10 @@ body {
   }
 }
 
-/* Skeleton Loader Styling (as before) */
+/* Skeleton Loader Styling */
 .placeholder-glow > * {
   border-radius: 6px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+  background: linear-gradient(90deg, #444664 25%, #38385a 37%, #444664 63%);
   background-size: 400% 100%;
   animation: placeholder-glow 1.5s infinite;
 }
@@ -187,6 +197,8 @@ body {
   margin-top: 20px;
   font-weight: 600;
   font-size: 1rem;
+  color: #ff6b6b;
+  text-shadow: 0 0 4px #820000;
 }
 
 /* Scrollbar style for suggestions */
@@ -195,12 +207,12 @@ body {
 }
 
 #suggestions::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #1a1a40;
   border-radius: 10px;
 }
 
 #suggestions::-webkit-scrollbar-thumb {
-  background: #2f80ed;
+  background: #6c63ff;
   border-radius: 10px;
 }
 

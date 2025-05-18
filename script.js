@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  const apiKey = "529d5802d42353195d7811e9875ca4c3"; // Replace with your OpenWeatherMap API key
+  const apiKey = "529d5802d42353195d7811e9875ca4c3"; // OpenWeatherMap API key
   let citiesList = [];
 
   // Load city list from JSON
@@ -38,7 +38,9 @@ $(document).ready(function () {
 
         const iconCode = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-        $("#weatherIcon").attr("src", iconUrl).attr("alt", data.weather[0].description);
+        $("#weatherIcon")
+          .attr("src", iconUrl)
+          .attr("alt", data.weather[0].description);
 
         $("#weatherResult").show();
       })
@@ -62,8 +64,12 @@ $(document).ready(function () {
       return;
     }
     matches.forEach((city) => {
-      const displayName = `${city.name}${city.state ? ", " + city.state : ""}, ${city.country}`;
-      const item = $(`<li class="list-group-item list-group-item-action">${displayName}</li>`);
+      const displayName = `${city.name}${
+        city.state ? ", " + city.state : ""
+      }, ${city.country}`;
+      const item = $(
+        `<li class="list-group-item list-group-item-action">${displayName}</li>`
+      );
       item.on("click", function () {
         $("#cityInput").val(displayName);
         suggestions.hide();
@@ -87,7 +93,9 @@ $(document).ready(function () {
   $("#searchBtn").click(function () {
     const inputVal = $("#cityInput").val().trim().toLowerCase();
     const match = citiesList.find((city) =>
-      `${city.name}${city.state}${city.country}`.toLowerCase().includes(inputVal)
+      `${city.name}${city.state}${city.country}`
+        .toLowerCase()
+        .includes(inputVal)
     );
     if (match) {
       fetchWeatherById(match.id);
